@@ -1,0 +1,543 @@
+<!-- 
+
+Dashboard Sample Template for (ITS) Department
+Copyright (c) Dalumpines, Eunicys S.
+Date Developed : July 2024
+ 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/sycinue-rdc/sycinue-rdc.github.io/site/assets/imgs/arc-logo.png" type="image/x-icon">
+
+  <style>
+    *, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  list-style-type: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9Im5vbmUiPjxnIG9wYWNpdHk9Ii4yIiBjbGlwLXBhdGg9InVybCgjRSkiPjxwYXRoIGQ9Ik0xNDY2LjQgMTc5NS4yYzk1MC4zNyAwIDE3MjAuOC02MjcuNTIgMTcyMC44LTE0MDEuNlMyNDE2Ljc3LTEwMDggMTQ2Ni40LTEwMDgtMjU0LjQtMzgwLjQ4Mi0yNTQuNCAzOTMuNnM3NzAuNDI4IDE0MDEuNiAxNzIwLjggMTQwMS42eiIgZmlsbD0idXJsKCNBKSkiLz48cGF0aCBkPSJNIDM5NC4yIDE4MTUuNmM3NDYuNTggMCAxMzUxLjgtNDkzLjIgMTM1MS44LTExMDEuNlMxMTQwLjc4LTM4Ny42IDM5NC4yLTM4Ny42LTk1Ny42IDEwNS42MDMtOTU3LjYgNzE0IDM1Mi4zOCAxODE1LjYgMzk0LjIgMTgxNS42eiIgZmlsbD0idXJsKCNCKSIvPjxwYXRoIGQ9Ik0xNTQ4LjYgMTg4NS4yYzYzMS45MiAwIDExNDQuMi00MTcuNDUgMTE0NC4yLTkzMi40UzIxODAuNTIgMjAuNCAxNTQ4LjYgMjAuNCA0MDQuNCA0MzcgNDA0LjQgOTUyLjhzNTEyLjI3NiA5MzIuNCAxMTQ0LjIgOTMyLjR6IiBmaWxsPSJ1cmwoI0MpIi8+PHBhdGggZD0iTTI2NS44IDEyMTUuNmM2OTAuMjQ2IDAgMTI0OS44LTQ1NS41OTUgMTI0OS44LTEwMTcuNlMtOTU2LjA0Ni04MTkuNiAtOTU2LjA0Ni0zNjQtODg0LjAgMTk4LTQyNC40NDUgMTIxNS42IDI2NS44IDEyMTUuNnoiIGZpbGw9InVybCgjRCkiLz48L2c+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJBIiBjeD0iMCIgY3k9IjAiIHI9IjEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDE0NjYuNCAzOTMuNikgcm90YXRlKDkwKSBzY2FsZSgxNDAxLjYgMTcyMC44KSI+PHN0b3Agc3RvcC1jb2xvcj0iIzEwN2MxMCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M0YzRjNCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9IkIiIGN4PSIwIiBjeT0iMCIgcj0iMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzk0LjIgNzE0KSByb3RhdGUoOTApIHNjYWxlKDExMDEuNiAxMzUxLjgpIj48c3RvcCBzdG9wLWNvbG9yPSIjMDA3OGQ0Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYzRjNGM0IiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0iQyIgY3g9IjAiIGN5PSIwIiByPSIxIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgxNTQ4LjYgOTUyLjgpIHJvdGF0ZSg5MCkgc2NhbGUoOTMyLjQgMTE0NC4yKSI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmYjkwMCIgc3RvcC1vcGFjaXR5PSIuNzUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNGM0YzQiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGlkPSJEIiBjeD0iMCIgY3k9IjAiIHI9IjEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDI2NS44IDE5OCkgcm90YXRlKDkwKSBzY2FsZSgxMDE3LjYgMTI0OS44KSI+PHN0b3Agc3RvcC1jb2xvcj0iI2Q4M2IwMSIgc3RvcC1vcGFjaXR5PSIuNzUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNjNGM0YzQiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PGNsaXBQYXRoIGlkPSJFIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNIDAgMGgxOTIwdjEwODBIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=");
+  background-color: rgba(0, 0, 0, 0.9);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  display: flex;
+}
+body a {
+  text-decoration: none;
+  color: white;
+}
+
+@font-face {
+  font-family: xspace;
+  src: url(../fonts/XspaceRegular.ttf);
+}
+.notif p {
+  background-color: rgb(255, 0, 0);
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  margin-bottom: -25px;
+  margin-left: 145px;
+}
+
+.notif p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5px;
+}
+
+.about {
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+.about .container {
+  padding: 10px;
+  text-align: center;
+}
+.about .container h1 {
+  margin-bottom: 10px;
+}
+.about .container p {
+  text-align: justify;
+}
+
+iframe {
+  height: calc(100vh - 52px - 21px);
+}
+
+@media screen and (min-device-width: 1080px) {
+  body {
+    flex-direction: row;
+  }
+  .navbar {
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+  }
+  .navbar .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar .container header {
+    text-align: center;
+    padding: 50px 0;
+  }
+  .navbar .container header img {
+    height: 180px;
+    border-radius: 100%;
+  }
+  .navbar .container header p {
+    font-size: 45px;
+    font-family: xspace;
+  }
+  .navbar .container .navlinks::-webkit-scrollbar {
+    display: none;
+  }
+  .navbar .container .navlinks {
+    width: 70%;
+    height: calc(100vh - 500px);
+    overflow: auto;
+    white-space: nowrap;
+  }
+  .navbar .container .navlinks ul li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .navbar .container .navlinks ul li .icon {
+    height: 20px;
+    margin-right: 5px;
+  }
+  .navbar .container .navlinks ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  section {
+    width: calc(100vw - 250px);
+  }
+  .hero::-webkit-scrollbar {
+    display: none;
+  }
+  .topbar {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+  }
+  .hero {
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .container a {
+    text-align: right;
+  }
+  .hero .container .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    border-radius: 8px;
+    transition: background-color ease-in-out 300ms;
+  }
+  .hero .container .box .box-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero .container .box .box-container img {
+    height: 60px;
+  }
+  .hero .container .box .box-container p {
+    margin-top: 10px;
+    color: white;
+    padding: 2.5px 0;
+    text-wrap: pretty;
+  }
+  .hero .container .box:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  marquee {
+    bottom: 0;
+    position: absolute;
+    background-color: black;
+    width: calc(100vw - 250px);
+  }
+}
+@media screen and (max-device-width: 1080px) {
+  body {
+    flex-direction: column;
+  }
+  .navbar {
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .navbar .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar .container header {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .navbar .container header img {
+    height: 140px;
+    border-radius: 100%;
+  }
+  .navbar .container header p {
+    font-size: 35px;
+    font-family: xspace;
+  }
+  .navbar .container .navlinks::-webkit-scrollbar {
+    display: none;
+  }
+  .navbar .container .navlinks {
+    width: 70%;
+    overflow: auto;
+    white-space: nowrap;
+  }
+  .navbar .container .navlinks ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .navbar .container .navlinks ul li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .navbar .container .navlinks ul li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  section {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .hero::-webkit-scrollbar {
+    display: none;
+  }
+  .topbar {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+  }
+  .hero {
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero iframe {
+    height: calc(100vh - 155px - 21px);
+  }
+  .hero .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .container a {
+    text-align: right;
+  }
+  .hero .container .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    width: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    border-radius: 8px;
+    transition: background-color ease-in-out 300ms;
+  }
+  .hero .container .box .box-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero .container .box .box-container img {
+    height: 60px;
+  }
+  .hero .container .box .box-container p {
+    margin-top: 10px;
+    color: white;
+    padding: 2.5px 0;
+    text-wrap: pretty;
+  }
+  .hero .container .box:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  marquee {
+    background-color: black;
+  }
+}/*# sourceMappingURL=style.css.map */
+  </style>
+
+</head>
+<body>
+
+  <div class="hero">
+    <div class="container">
+      <!-- BOX CONTAINERS FOR LINKS ICONS -->
+      <a
+        href="https://docs.google.com/spreadsheets/d/1VTdaoxLbGe-GpHIou3W54CfnUtxC3nR7eVTInLX0C-4/edit?usp=sharing"
+      >
+
+      <!-- Notification Bubble -->
+
+      <!-- 
+        To Hide Notification Bubble Callout 
+            style="display: none;"
+      -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <!-- ICON -->
+            <img
+              src="https://lh3.googleusercontent.com/pw/AP1GczMuyxQq_WVAfaHZex28Je37StejSo8UkKlNQPXNUSMc0gEQkxJ94HWvvGr7DQISsAcyccDgToYbmNXJzD2inGIKUPWVTZzrBTkdx-io_Q4GQv51t_9M_t5_kdJqpMnZaowLQ0CD9ljcT9j_jNhFV3E=w450-h450-s-no-gm?authuser=0"
+              alt=""
+            />
+            <!-- BOX TITLE -->
+            <p>Student ID</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1gDW58QxRl4_h06x1UGv8LWB2bvYeLb0aYJad4EnGe7k/edit?gid=1045433930#gid=1045433930">
+        
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczP5EN55xKc5y2TBev9aY379AoIqtzQpat_TqUYtNo-9jK78OQH3SC1TQ1Cpyj4YYgfZ7JrWVNI1tSPZhx_Zas3Isvzg106Ud5PRtYgZwaraLjKGzk6bO_LZvOLD33DEWfHjXRV31YkCzDe91N7LBbQ=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Generated Email</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1SCMY3v-kGfwT8_PSyuD_LXatUjRmTzUwnIvuz9UtNwg/edit?gid=1338392314#gid=1338392314">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczPMh1BEq7EzZUjtxhYIWw9k7rpsiNAXadTBc3S3NHSzlpgxcoUaHVFwH_PlOv6Vyj1gjtFR3OB9irq_DjRq2S-omz-ywpDB8QASos-hUN_baifIdOQV3SPN3Xpyk0CG1CaHebEXVoHKekhWXudl4ao=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Gmail Request</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1gDW58QxRl4_h06x1UGv8LWB2bvYeLb0aYJad4EnGe7k/edit?gid=356156881#gid=356156881">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczPM3fL63OdrBob6bcmnbqiBdKJ5sZYVs3EG0VCdlMKhME2FyDGC5g35PQIkWQpAlTqUR-u_E6NNQ1Ovjb3TxvLww_8cMSwiu_W3mOCB9dBxMwU4fLzG78yHvEoFe4j3tKYO57-RoK3ykO5rs4jRymg=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Gmail Stats</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1NByKZRO7uN0eo8ckcMQ0EgE2YTcYynIN7mQ8H_mMzik/edit?gid=156743677#gid=156743677">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczMfPpSEUBgJoVD3sCXDIcGWJxo5NXIt0P9KgTyw4ClRi3bM-rMXwWa7Zxgq4vLm7kR-5CBGyJVy3y__h1axkHFDACZ2UIrufi9WmLzJ54zq9jJALOp3xhTF2h1DJ9AKTzeL7lhm-dlCphYy1X7Ujok=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Graphics Design</p>
+          </div>
+        </div>
+      </a>
+      
+      <a href="https://docs.google.com/spreadsheets/d/1bPNGi42N3WGDaBiWVSkGRZ9_NVEyiWHprTnnBd9r5CE/edit?gid=1899936029#gid=1899936029">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczPrQndAgC5M3DJRp6eC1Rj7MANUL89LHNOgHdIs6eHC5UbcfVV9J6ywfOXZY-DuyBymb9WkEyFy320N180OdJOuQeswUonod9YPcqSTOTcXozfC8rnO51iE0wDw89gdafy-y3kARZxgvJSNUKL5JSw=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Technical Request</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1_FqDy_f6Pz0tkUzlDsdzb7Bd-2oM8_4t0YvXtE5zi34/edit?gid=350589369#gid=350589369">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczNDM1MmUuX07rW5Nm4IHV-OOrfuzhWl8WK5YB6kIQA4P70O8bAimZbucR3uPFz_qvIuVrCApJWqCx7jh-KzFPSLFzPakjaTv1u2SNSOYjXGUtqtUMUTiDX4pTA1Ba72KkmKlH44O2zkncI2hXlNKUU=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Event Request</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczMTVOZYF0wPdJi84x5oPPdtDdcSUluRpnWYrYvqeZHx6y-MF87oRhi93txNLxVYkCxkSDezoKTTSn-920BxBdbXI5cKTd9H_bJq2VqNaHMsYzw2cjrAlTi_TFkmI72dIzQmyEFlX11QwahFmWjZXDs=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Visit Request</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1agCfwNdghgKGj2Gs9oWGuF9tgmu-DUhgvD9vo9DaMYM/edit?gid=564409540#gid=564409540">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczO1c8D8DE5RivmS7ntIox3xtL5GWXtk13R5yyfHT63EYhsTNHb0eAjxc1Ja44FmZURfprQIKHilBYkLgkG8oudMa4Qq7Y1Upu2SdPOHl9nDEqnW75Xfar-5svo4skuGObEsU9ebaCFm_z-y6pTm8Z4=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Bulk Printing</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/1Jpen60NjQWlpWJuWJIBbvJ4ZPDGW158lOwVyAFaGUWI/edit?usp=sharing">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczMHjX8HDPyeqgzkzOQx-TRLpHyFFtLQAZ4u5UEs1AQ3GtXnrSKQPf4YPQ3HMsZJglwv9l97peUuqfwqpymG1wHQwxB4ojF84k2yo4O4C5SvFAIRgV2yrm6xZzUCTq2cHj9_D9y7eXBCj_x9b7tzC74=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Printing Request Letter</p>
+          </div>
+        </div>
+      </a>
+
+      
+      <a href="https://docs.google.com/spreadsheets/d/1qbm1IKigAreaYCS7iFjIZsaCe4jE9nNgUSce-7gIxHM/edit?gid=231054789#gid=231054789">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczM4y9SIYXkTDKwKY6xaN4v4omH1y8W_z1qqqM_lYn7gBdrht-EKtnXHrXI__GDdI7rUdLkqX7xZkUhYapCFNwu7S6GkpmVb0QjrQvBGoTEpL_eJoi-eiSrspl-yeSGoT_r6Y_m7RPkD6rHYWTGhM8w=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Mr. Menard Monthly Report</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://docs.google.com/spreadsheets/d/162r8iUCV37l1REmK6AuBu52-CdFKXd3fAsfW1iYQjgw/edit?usp=sharing">
+
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczM4y9SIYXkTDKwKY6xaN4v4omH1y8W_z1qqqM_lYn7gBdrht-EKtnXHrXI__GDdI7rUdLkqX7xZkUhYapCFNwu7S6GkpmVb0QjrQvBGoTEpL_eJoi-eiSrspl-yeSGoT_r6Y_m7RPkD6rHYWTGhM8w=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Mr. Kim Monthly Report</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#">
+                
+      <!-- Notification Bubble -->
+      <span class="notif">
+        <p>999</p>
+      </span>
+
+        <div class="box">
+          <div class="box-container">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczM4y9SIYXkTDKwKY6xaN4v4omH1y8W_z1qqqM_lYn7gBdrht-EKtnXHrXI__GDdI7rUdLkqX7xZkUhYapCFNwu7S6GkpmVb0QjrQvBGoTEpL_eJoi-eiSrspl-yeSGoT_r6Y_m7RPkD6rHYWTGhM8w=w450-h450-s-no-gm?authuser=0" alt="" />
+            <p>Mr. Vergel Monthly Report</p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>
